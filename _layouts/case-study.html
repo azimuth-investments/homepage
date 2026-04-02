@@ -1,0 +1,20 @@
+---
+layout: default
+---
+
+<!-- CASE STUDY HEADER -->
+<header class="case-study-header">
+  <div class="section-label">Case Study</div>
+  <h1>{{ page.title }}</h1>
+  {% if page.description %}
+  <p class="lead">{{ page.description }}</p>
+  {% endif %}
+</header>
+
+<!-- CASE STUDY BODY -->
+<article class="case-study-body">
+  <a href="{{ '/case-studies/' | relative_url }}" class="case-study-back">All case studies</a>
+  {{ content }}
+</article>
+
+{% include contact-cta.html %}

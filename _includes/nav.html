@@ -1,0 +1,11 @@
+<nav>
+  <a href="{{ '/' | relative_url }}" class="logo">Azimuth<span>.</span></a>
+  <ul>
+    <li><a href="{{ '/' | relative_url }}#services">Services</a></li>
+    <li><a href="{{ '/' | relative_url }}#approach">Approach</a></li>
+    {% if site.case_studies.size > 0 %}
+    <li><a href="{{ '/case-studies/' | relative_url }}">Case Studies</a></li>
+    {% endif %}
+    <li><a href="#contact" class="nav-cta">Get in touch</a></li>
+  </ul>
+</nav>
