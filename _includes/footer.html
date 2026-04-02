@@ -1,5 +1,14 @@
 <footer>
-  <a href="{{ '/' | relative_url }}" class="logo">Azimuth<span>.</span></a>
+  <a href="{{ '/' | relative_url }}" class="logo" aria-label="Azimuth Investments – Home">
+    <svg class="logo-icon" viewBox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <polygon points="10,0 14,16 6,16" fill="var(--clay)"/>
+      <polygon points="10,24 14,16 6,16" fill="rgba(180,165,140,0.5)"/>
+    </svg>
+    <span class="logo-wordmark">
+      <span class="logo-name">Azimuth</span>
+      <span class="logo-sub">Investments</span>
+    </span>
+  </a>
   <nav><ul>
     <li><a href="{{ '/' | relative_url }}#services">Services</a></li>
     <li><a href="{{ '/' | relative_url }}#approach">Approach</a></li>
