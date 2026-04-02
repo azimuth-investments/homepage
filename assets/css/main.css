@@ -25,7 +25,7 @@ body {
 }
 
 /* ── NAV ── */
-nav {
+.site-nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
   padding: 1.4rem 4rem;
@@ -66,8 +66,8 @@ nav {
   color: var(--clay);
   margin-top: 0.15rem;
 }
-nav ul { list-style: none; display: flex; gap: 2.5rem; }
-nav ul a {
+.site-nav ul { list-style: none; display: flex; gap: 2.5rem; }
+.site-nav ul a {
   font-size: 0.82rem;
   font-weight: 500;
   letter-spacing: 0.12em;
@@ -76,7 +76,7 @@ nav ul a {
   text-decoration: none;
   transition: color 0.25s;
 }
-nav ul a:hover { color: var(--clay); }
+.site-nav ul a:hover { color: var(--clay); }
 .nav-cta {
   background: var(--clay);
   color: #fff !important;
@@ -458,7 +458,7 @@ footer .logo .logo-icon polygon:first-child { fill: var(--clay); }
 footer .logo .logo-icon polygon:last-child { fill: rgba(255,255,255,0.25); }
 footer a { color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
 footer a:hover { color: var(--clay); }
-footer nav ul { gap: 1.5rem; }
+footer nav ul { list-style: none; display: flex; gap: 1.5rem; }
 footer nav ul a {
   font-size: 0.75rem;
   letter-spacing: 0.1em;
@@ -683,8 +683,8 @@ footer nav ul a {
 .reveal-delay-3 { transition-delay: 0.45s; }
 
 @media (max-width: 900px) {
-  nav { padding: 1.2rem 2rem; }
-  nav ul { display: none; }
+  .site-nav { padding: 1.2rem 2rem; }
+  .site-nav ul { display: none; }
   .hero { grid-template-columns: 1fr; }
   .hero-left { padding: 8rem 2rem 4rem; }
   .hero-right { min-height: 50vw; }
