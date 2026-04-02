@@ -1,0 +1,29 @@
+---
+layout: default
+title: Case Studies
+description: A selection of companies we have partnered with and the challenges we helped them solve.
+permalink: /case-studies/
+---
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="section-label">Case studies</div>
+  <h1 class="section-title">Partners we&#8217;ve helped navigate.</h1>
+  <p class="page-hero-sub">A selection of companies we&#8217;ve partnered with and the challenges we helped them solve — from early fundraising to technical architecture at scale.</p>
+</div>
+
+<!-- CASE STUDY CARDS -->
+<div class="case-studies-grid">
+  {% for study in site.case_studies %}
+  <div class="case-study-card reveal">
+    {% if study.category %}
+    <div class="case-study-card-tag">{{ study.category }}</div>
+    {% endif %}
+    <h2>{{ study.title }}</h2>
+    <p>{{ study.description }}</p>
+    <a href="{{ study.url | relative_url }}" class="read-more">Read case study</a>
+  </div>
+  {% endfor %}
+</div>
+
+{% include contact-cta.html %}

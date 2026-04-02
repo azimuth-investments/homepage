@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% if page.title and page.title != site.title %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+<meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+</head>
+<body>
+
+{% include nav.html %}
+
+{{ content }}
+
+{% include footer.html %}
+
+<script>
+  // Scroll reveal
+  const els = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }});
+  }, { threshold: 0.12 });
+  els.forEach(el => io.observe(el));
+
+  // Contact form — AJAX submit
+  // 1. Posts to the current page so Netlify Forms captures it (enables email notifications).
+  // 2. Also calls the Notion function to write a row into the "Added Interest Data" database.
+  const contactForm = document.querySelector('form[name="contact"]');
+  if (contactForm) {
+    contactForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = contactForm.querySelector('button[type="submit"]');
+      const originalText = btn.textContent;
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+
+      // Convert FormData to URLSearchParams explicitly for cross-browser compatibility
+      const encoded = new URLSearchParams(Array.from(new FormData(contactForm))).toString();
+      const fetchOpts = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encoded,
+      };
+
+      try {
+        // Submit to Netlify Forms endpoint for capture + email notifications
+        await fetch('/', fetchOpts);
+
+        // Submit to Notion function to create a row in "Added Interest Data"
+        await fetch('/.netlify/functions/notion-contact', fetchOpts);
+
+        btn.textContent = 'Message sent ✓';
+        btn.style.background = '#5a6b75';
+      } catch (err) {
+        console.error('Form submission error:', err);
+        btn.textContent = originalText;
+        btn.disabled = false;
+        const errorMsg = contactForm.querySelector('.form-error');
+        if (errorMsg) errorMsg.style.display = 'block';
+      }
+    });
+  }
+</script>
+</body>
+</html>

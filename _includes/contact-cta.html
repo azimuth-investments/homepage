@@ -1,0 +1,63 @@
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-left reveal">
+    <div class="section-label">Get in touch</div>
+    <h2 class="section-title">Let's find your direction.</h2>
+    <p class="contact-sub">Whether you're raising your first round, navigating a critical technical decision, or looking for a strategic partner — we'd love to hear from you. No obligation, just a conversation.</p>
+    <div class="contact-details">
+      <div class="contact-item">
+        <div class="contact-item-icon">✉</div>
+        hello@azimuthinvestments.com
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">◎</div>
+        Response within 48 hours
+      </div>
+    </div>
+  </div>
+  <div class="contact-form reveal reveal-delay-1">
+    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+      <input type="hidden" name="form-name" value="contact">
+      <!-- Honeypot field — hidden from real users, catches bots -->
+      <p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="first-name">First name</label>
+          <input id="first-name" type="text" name="first-name" placeholder="Jane" required>
+        </div>
+        <div class="form-group">
+          <label for="last-name">Last name</label>
+          <input id="last-name" type="text" name="last-name" placeholder="Smith">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input id="email" type="email" name="email" placeholder="jane@company.com" required>
+      </div>
+      <div class="form-group">
+        <label for="company">Company / Project</label>
+        <input id="company" type="text" name="company" placeholder="Your company name">
+      </div>
+      <div class="form-group">
+        <label for="service">What are you looking for?</label>
+        <select id="service" name="service">
+          <option value="">Select a service...</option>
+          <option value="Investment opportunity">Investment opportunity</option>
+          <option value="Consultancy for equity">Consultancy for equity</option>
+          <option value="Fractional CTO">Fractional CTO</option>
+          <option value="Not sure yet — let's talk">Not sure yet — let's talk</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="message">Tell us about your company</label>
+        <textarea id="message" name="message" rows="4" placeholder="A brief overview of where you are and what you're trying to build..."></textarea>
+      </div>
+      <div class="submit-row">
+        <span class="privacy-note">We'll never share your details with third parties.</span>
+        <button class="btn-primary" type="submit">Send message →</button>
+      </div>
+      <p class="form-error" style="display:none;color:#b94a48;margin-top:0.75rem;font-size:0.85rem;">Something went wrong. Please try again or email us directly at hello@azimuthinvestments.com.</p>
+    </form>
+  </div>
+</section>

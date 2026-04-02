@@ -1,0 +1,34 @@
+title: Azimuth Investments
+description: Investments · Advisory · Technology
+url: ""
+baseurl: ""
+
+# Collections
+collections:
+  case_studies:
+    output: true
+    permalink: /case-studies/:slug/
+
+defaults:
+  - scope:
+      path: ""
+      type: "case_studies"
+    values:
+      layout: "case-study"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+# Exclude from build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - netlify
+  - node_modules
+  - .git
